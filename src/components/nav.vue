@@ -5,8 +5,8 @@
       </div>
       <div>
         <router-link class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 bg-neutral-800 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100" to="/">Home</router-link>
-         <router-link v-if="!loggedIn" class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100" to="/board">Sign In / Register</router-link>
-        <router-link v-if="loggedIn" class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100" to="/board">Your Board</router-link>
+         <router-link v-if="!loggedIn" class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100 bg-neutral-800" to="/board">Sign In / Register</router-link>
+        <router-link v-if="loggedIn" class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100 bg-neutral-800" to="/board">Your Board</router-link>
       </div>
     </div>
 </template>
