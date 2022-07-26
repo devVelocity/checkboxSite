@@ -1,7 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </nav>
   <router-view/>
 </template>
@@ -28,3 +27,16 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script>
+
+import nav from '@/components/nav.vue'
+
+export default {
+  name: 'nav',
+  components: {
+    nav
+  }
+}
+
+</script>
