@@ -1,4 +1,6 @@
 <template>
+    <div class="w-full h-36 bg-green-800">
+    </div>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
 </template>
