@@ -1,8 +1,13 @@
 <template>
-    <div class="w-full h-36 bg-green-800">
+    <div class="w-full h-20 bg-green-900 flex pt-4 pb-4 lg:pl-40 lg:pr-40 items-center pl-4 pr-4 justify-between">
+      <div>
+        <h1 class="text-2xl text-white"><b>Task</b><span class="text-light">Track</span></h1>
+      </div>
+      <div>
+        <router-link class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 bg-neutral-800 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100" to="/">Home</router-link>
+        <router-link class="pr-8 pl-8 text-white text-opacity-70 hover:text-opacity-100 duration-100 bg-neutral-800 ml-4 mr-4 pt-2 pb-2 rounded-md bg-opacity-50 hover:bg-opacity-100" to="/about">About</router-link>
+      </div>
     </div>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
 </template>
 
 <script>
@@ -16,18 +21,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
