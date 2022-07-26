@@ -30,12 +30,12 @@ nav a.router-link-exact-active {
 
 <script>
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import nav from '@/components/nav.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'nav',
   components: {
-    HelloWorld
+    nav
   }
 }
 
