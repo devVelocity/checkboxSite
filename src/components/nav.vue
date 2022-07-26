@@ -1,5 +1,5 @@
 <template>
-<template>
+<h1>test</h1>
     <div class="w-full h-20 bg-green-900 flex pt-4 pb-4 lg:pl-40 lg:pr-40 items-center pl-4 pr-4 justify-between">
       <div>
         <h1 class="text-2xl text-white"><b>Task</b><span class="text-light">Track</span></h1>
@@ -14,8 +14,6 @@
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-
-</template>
 
 <script>
 export default {
