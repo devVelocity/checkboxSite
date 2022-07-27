@@ -11,6 +11,8 @@
 
 import navigation from '@/components/nav.vue'
 
+
+
 export default {
   name: 'app',
   data(){
@@ -18,8 +20,8 @@ export default {
       isUserLoggedIn: false,
     }
   },
-  created(){
-    this.isUserLoggedIn = false
+  mounted(){
+
   },
   components: {
     navigation
