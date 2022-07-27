@@ -7,10 +7,10 @@
             <h1 class="text-2xl md:text-3xl font-semibold text-gray-700">Login / Register</h1>
             <div class="mt-8">
                 <input v-model="username" class="rounded-md w-full p-2 pl-2 pr-4" placeholder="Username">
-                <input v-model="password" class="rounded-md w-full p-2 pl-2 pr-4 mt-3" placeholder="Password">
+                <input v-model="password" type="password" class="rounded-md w-full p-2 pl-2 pr-4 mt-3" placeholder="Password">
                 <div class="w-full flex mt-8 gap-3 flex-col sm:flex-row">
-                    <h1 class="w-full text-center bg-gray-800 bg-opacity-100 hover:bg-green-800 text-white  rounded-md p-2 opacity-100 duration-100 relative hover:cursor-pointer">Sign In</h1>
-                    <h1 class="w-full text-center bg-gray-800 bg-opacity-100 hover:bg-green-800 text-white  rounded-md p-2 opacity-100 duration-100 relative hover:cursor-pointer">Register</h1>
+                    <h1 class="w-full text-center bg-gray-800 bg-opacity-100 hover:bg-green-800 text-white  rounded-md p-2 opacity-100 duration-100 relative hover:cursor-pointer" @click="signIn">Sign In</h1>
+                    <h1 class="w-full text-center bg-gray-800 bg-opacity-100 hover:bg-green-800 text-white  rounded-md p-2 opacity-100 duration-100 relative hover:cursor-pointer" @click="register">Register</h1>
                 </div>
             </div>
         </div>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
     export default {
         props:['isLoggedIn'],
         data(){
@@ -32,6 +33,26 @@
             logIn(){
                 this.$root.isUserLoggedIn = true
                 this.$emit('userHasLoggedIn')
+            },
+            register(){
+                createUserWithEmailAndPassword(getAuth(), this.username, this.password)
+                .then((data) => {
+                    console.log("Registered")
+                })
+                .catch((data) => {
+                    console.log("Error - " + data.code)
+                })
+            },
+            signIn(){
+                signInWithEmailAndPassword(getAuth(), this.username, this.password)
+                .then((data) => {
+                    console.log("signed in")
+                    console.log(auth.currentUsser)
+                    router.push('board')
+                })
+                .catch((data) => {
+                    console.log("Error - " + data.code)
+                })
             }
         }
     }
