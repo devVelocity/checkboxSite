@@ -13,6 +13,14 @@ import navigation from '@/components/nav.vue'
 
 export default {
   name: 'app',
+  data(){
+    return{
+      isUserLoggedIn: false,
+    }
+  },
+  created(){
+    this.isUserLoggedIn = false
+  },
   components: {
     navigation
   }
