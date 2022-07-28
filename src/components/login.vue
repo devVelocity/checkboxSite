@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
+const auth = getAuth()
     export default {
         props:['isLoggedIn'],
         data(){
@@ -62,24 +63,26 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
                 .then((data) => {
                     console.log("Registered")
                     this.$root.isUserLoggedIn = true
-                    this.$router.push('board')
+                    this.$router.go("board")
                 })
                 .catch((data) => {
                     console.log("Error - " + data.code)
                     this.errorChecking(data)
                 })
+                
             },
             signIn(){
                 signInWithEmailAndPassword(getAuth(), this.username, this.password)
                 .then((data) => {
                     console.log("signed in")
                     this.$root.isUserLoggedIn = true
-                    this.$router.push('board')
+                    this.$router.go("board")
                 })
                 .catch((data) => {
                     console.log("Error - " + data.code)
                     this.errorChecking(data)
                 })
+
             }
         }
     }

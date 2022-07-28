@@ -9,7 +9,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 const auth = getAuth()
 
     export default {
-        mounted(){
+        created(){
             onAuthStateChanged(auth)
             .then((user) => {
                 if (!user){
