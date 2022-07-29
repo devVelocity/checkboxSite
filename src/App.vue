@@ -11,17 +11,12 @@
 
 import navigation from '@/components/nav.vue'
 
-
-
 export default {
   name: 'app',
   data(){
     return{
       isUserLoggedIn: false,
     }
-  },
-  mounted(){
-
   },
   components: {
     navigation

@@ -1,22 +1,12 @@
 <template>
-    <div>
-        <h1>Board Pg</h1>
+    <div class="h-screen bg-black">
+
     </div>
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged } from "firebase/auth"
-const auth = getAuth()
-
     export default {
-        created(){
-            onAuthStateChanged(auth)
-            .then((user) => {
-                if (!user){
-                    this.$router.push("/")
-                }
-            })
-        }
+        
     }
 </script>
 

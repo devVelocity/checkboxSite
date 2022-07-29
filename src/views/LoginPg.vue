@@ -8,7 +8,7 @@
 <script>
 import login from '@/components/login.vue'
 import { getAuth, onAuthStateChanged } from "firebase/auth"
-const auth = getAuth()
+// const auth = getAuth()
 
 export default {
   name: 'board',

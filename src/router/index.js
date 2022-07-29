@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePg from '../views/HomePg.vue'
-import BoardPg from '../views/BoardPg.vue'
-import LoginPg from '../views/LoginPg.vue'
+const HomePg = () => import('../views/HomePg.vue')
+const LoginPg = () => import('../views/LoginPg.vue')
+const BoardPg = () => import('../views/BoardPg.vue')
 
 const routes = [
   {

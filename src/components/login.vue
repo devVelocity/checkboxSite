@@ -28,7 +28,7 @@
 
 <script>
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
-const auth = getAuth()
+var auth = null;
     export default {
         props:['isLoggedIn'],
         data(){
@@ -38,6 +38,9 @@ const auth = getAuth()
                 errorMSG: "",
                 registerMode:false
             }
+        },
+        created(){
+            auth = getAuth()
         },
         methods:{
             logIn(){
