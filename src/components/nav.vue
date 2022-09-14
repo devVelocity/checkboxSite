@@ -52,6 +52,7 @@ export default {
       signOut(auth).then(() => {
         // Sign-out successful.
         console.log("worked")
+        this.$router.push("/")
         this.loggedIn = false
       }).catch((error) => {
         // An error happened.

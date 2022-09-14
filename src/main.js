@@ -20,7 +20,9 @@ const firebaseConfig = {
 
   appId: "1:1028431956009:web:d70b38cca6e949851fb438",
 
-  measurementId: "G-WN919EZ5GY"
+  measurementId: "G-WN919EZ5GY",
+
+  databaseURL:"https://tasktrack-4ed5f-default-rtdb.europe-west1.firebasedatabase.app"
 
 };
 

@@ -1,22 +1,29 @@
 <template>
-    <div>
-        <h1>Board Pg</h1>
+    <div class="h-screen bg-black">
+
     </div>
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged } from "firebase/auth"
-const auth = getAuth()
-
+    import { getAuth, onAuthStateChanged } from "firebase/auth"
+    import { getDatabase } from "firebase/database";
+    const database = getDatabase();
     export default {
         created(){
-            onAuthStateChanged(auth)
-            .then((user) => {
-                if (!user){
-                    this.$router.push("/")
+            const auth = getAuth()
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                // this.$router.push("board")
+                // ...
+                } else {
+                this.$router.push("/")
+                // User is signed out
+                // ...
                 }
             })
-        }
+        },
     }
 </script>
 

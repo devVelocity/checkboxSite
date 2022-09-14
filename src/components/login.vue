@@ -28,7 +28,8 @@
 
 <script>
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
-const auth = getAuth()
+import { getDatabase, ref, set } from "firebase/database";
+var auth = null;
     export default {
         props:['isLoggedIn'],
         data(){
@@ -38,6 +39,9 @@ const auth = getAuth()
                 errorMSG: "",
                 registerMode:false
             }
+        },
+        created(){
+            auth = getAuth()
         },
         methods:{
             logIn(){
@@ -62,8 +66,27 @@ const auth = getAuth()
                 createUserWithEmailAndPassword(getAuth(), this.username, this.password)
                 .then((data) => {
                     console.log("Registered")
-                    this.$root.isUserLoggedIn = true
-                    this.$router.go("board")
+                    console.log(data)
+                    const user = data.uid
+                    const db = getDatabase();
+                    set(ref(db, 'users/' + data.user.uid), {
+                        username: this.username,
+                        tasks:[],
+                        spending:[]
+                    })
+                    .then(() => {
+                        console.log("Success")
+                        this.$root.isUserLoggedIn = true
+                        this.$router.push("board")
+                    })
+                    .catch((error) => {
+                        this.errorMSG = error
+                        console.log(error)
+                        const user = getAuth().currentUser
+                        deleteUser(user).then(()=>{
+                            console.log("user deleted")
+                        })
+                    })
                 })
                 .catch((data) => {
                     console.log("Error - " + data.code)
